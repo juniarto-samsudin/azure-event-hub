@@ -1,0 +1,66 @@
+1. influx
+
+2. create database mydb
+
+3. show databases
+
+4. use mydb
+
+5. insert cpu,host=serverA,region=us_west value=0.64
+
+6. select "host","region","value" from "cpu"
+
+7. select * from cpu
+
+
+INSERT temperature,officename=01 value=23.2
+
+result in:
+
+name: temperature
+
+time       officename     value
+xxxxxx     01             23.2
+
+
+INSERT cpuUsage,host=server2,region=us_east  value=0.152
+
+result in:
+
+name: cpuUsage
+
+time        host    region  value
+xxxxxx      server2 us_east 0.152
+
+
+
+select count(*) from cpuUsage
+
+
+show measurements
+
+
+json_body = { "measurement":"temperature",
+                   "tags":{
+                     "tag1":"val1"
+                   },
+                  "fields":{
+                        "value1": 100.0
+                  }
+                }
+
+result in
+> select * from temperature
+name: temperature
+time                tag1 value1
+----                ---- ------
+1585467677407514318 val1 100
+
+
+
+
+
+
+
+
+

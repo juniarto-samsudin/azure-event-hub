@@ -1,0 +1,7 @@
+docker login -u i3prov i3prov.azurecr.io
+
+
+./balena build --application test-fleet --projectName i3prov.azurecr.io/none-raspberry4  --registry-secrets /home/juniarto/iot-apps/none-raspberry4/i3prov.yml /home/juniarto/iot-apps/none-raspberry4/ --emulated
+
+
+docker push i3prov.azurecr.io/none-raspberry4_main:latest
